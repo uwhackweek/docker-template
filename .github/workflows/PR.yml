@@ -11,10 +11,9 @@ jobs:
       uses: jupyterhub/repo2docker-action@master
       with:
         NO_PUSH: 'true'
-        IMAGE_NAME: "uwhackweeks/template"
-        #MYBINDERORG_TAG: ${{ github.event.pull_request.head.ref }} #clutters output log
+        IMAGE_NAME: "uwhackweek/template"
 
     - name: Report Image Size and Conda Packages
       run: |
         docker images
-        docker run uwhackweeks/template:latest conda list --export
+        docker run uwhackweek/template:latest conda list --export
