@@ -1,7 +1,14 @@
 name: AddBinderBadge
 on:
   pull_request_target:
+    branches:
+      - main
     types: [opened]
+    paths-ignore:
+      - 'LICENSE'
+      - 'README.md'
+      - '.gitignore'
+      
 jobs:
   build-image-without-pushing:
     runs-on: ubuntu-latest

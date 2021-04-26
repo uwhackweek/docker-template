@@ -1,5 +1,12 @@
 name: BuildAndTest
-on: [pull_request]
+on:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - 'LICENSE'
+      - 'README.md'
+      - '.gitignore'
 jobs:
   build-image-without-pushing:
     runs-on: ubuntu-latest
