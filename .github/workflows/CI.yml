@@ -30,6 +30,11 @@ jobs:
         IMAGE_NAME: ${{ env.DOCKER_IMAGE }}
         ADDITIONAL_TAG: ${{ steps.calver.outputs.version }}
 
+    # This can eventually be removed https://github.com/redhat-actions/push-to-registry/issues/37
+    - name: Podman fix
+      run: |
+        ls $HOME/.config/containers
+
     - name: Also Push To quay.io
       id: push-to-quay
       uses: redhat-actions/push-to-registry@v2
