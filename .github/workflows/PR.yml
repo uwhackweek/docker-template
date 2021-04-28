@@ -22,9 +22,9 @@ jobs:
       uses: jupyterhub/repo2docker-action@master
       with:
         NO_PUSH: 'true'
-        IMAGE_NAME: ${DOCKER_IMAGE}
+        IMAGE_NAME: ${{ env.DOCKER_IMAGE }}
 
     - name: Report Image Size and Conda Packages
       run: |
         docker images
-        docker run ${DOCKER_IMAGE}:latest conda list --export
+        docker run ${{ env.DOCKER_IMAGE }}:latest conda list --export
