@@ -36,7 +36,7 @@ jobs:
       with:
         image: ${DOCKER_IMAGE}
         tags: ${{ steps.calver.outputs.version }}
-        registry: quay.io/${{ secrets.QUAY_USERNAME }}
+        registry: quay.io/uwhackweek
         username: ${{ secrets.QUAY_USERNAME }}
         password: ${{ secrets.QUAY_PASSWORD }}
 
