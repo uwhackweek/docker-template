@@ -27,14 +27,14 @@ jobs:
       with:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        IMAGE_NAME: ${DOCKER_IMAGE}
+        IMAGE_NAME: ${{ env.DOCKER_IMAGE }}
         ADDITIONAL_TAG: ${{ steps.calver.outputs.version }}
 
     - name: Also Push To quay.io
       id: push-to-quay
       uses: redhat-actions/push-to-registry@v2
       with:
-        image: ${DOCKER_IMAGE}
+        image: ${{ env.DOCKER_IMAGE }}
         tags: ${{ steps.calver.outputs.version }}
         registry: quay.io/uwhackweek
         username: ${{ secrets.QUAY_USERNAME }}
