@@ -7,6 +7,10 @@ on:
       - 'LICENSE'
       - 'README.md'
       - '.gitignore'
+
+env:
+  DOCKER_IMAGE: uwhackweek/template
+
 jobs:
   build-image-without-pushing:
     runs-on: ubuntu-latest
@@ -18,9 +22,9 @@ jobs:
       uses: jupyterhub/repo2docker-action@master
       with:
         NO_PUSH: 'true'
-        IMAGE_NAME: "uwhackweek/template"
+        IMAGE_NAME: ${DOCKER_IMAGE}
 
     - name: Report Image Size and Conda Packages
       run: |
         docker images
-        docker run uwhackweek/template:latest conda list --export
+        docker run ${DOCKER_IMAGE}:latest conda list --export
