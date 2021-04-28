@@ -13,7 +13,7 @@ env:
 
 jobs:
   build-image-without-pushing:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Checkout PR
       uses: actions/checkout@v2
