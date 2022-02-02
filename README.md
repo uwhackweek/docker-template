@@ -8,7 +8,8 @@ This repository builds a [JupyterHub](https://jupyter.org/hub) environment with 
 ### How to use this template repository
 
 1. Click 'Use this Template' to create a copy of the configuration under your organization
-2. Edit README.md to replace all occurances of `uwhackweek/docker-template` to your repo name (for example `uwescience/snowexhack2021`)
+2. Edit README.md
+2. Edit `.env` and `docker-compose.yml` with your container storage `org/repository`
 3. Ensure you have [GitHub Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) for DOCKER_USERNAME and DOCKER_PASSWORD
 4. Build with GitHub Actions simply by pushing to GitHub:
     * Commits to 'main' branch build image, by git commit sha and 'latest', and push to DockerHub and Quay.io
@@ -37,7 +38,7 @@ docker compose down
 ### Pull image from respository
 
 * From [DockerHub](https://hub.docker.com/r/uwhackweeks/template/tags): `docker pull uwhackweek/template:latest`
-* From [Quay](https://quay.io/repository/uwhackweek/template?tab=tags): `docker pull quay.io/uwhackweek/template:latest` 
+* From [Quay](https://quay.io/repository/uwhackweek/template?tab=tags): `docker pull quay.io/uwhackweek/template:latest`
 
 ### Point to a specific tagged image in JupyterHub config
 

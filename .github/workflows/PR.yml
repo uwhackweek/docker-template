@@ -8,15 +8,15 @@ on:
       - 'README.md'
       - '.gitignore'
 
-env:
-  DOCKER_IMAGE: uwhackweek/template
-
 jobs:
   build-image-without-pushing:
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout PR
       uses: actions/checkout@v2
+
+    - name: Set Docker Image Name Environment Variable
+      run: cat .env >> $GITHUB_ENV
 
     - name: Build Only
       uses: jupyterhub/repo2docker-action@master
