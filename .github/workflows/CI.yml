@@ -25,7 +25,7 @@ jobs:
     - name: Build and Push to DockerHub
       env:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      if: "{{ env.DOCKER_PASSWORD != '' }}"
+      if: env.DOCKER_PASSWORD != ''
       uses: jupyterhub/repo2docker-action@master
       with:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
@@ -36,7 +36,7 @@ jobs:
     - name: Also Push To quay.io
       env:
         QUAY_PASSWORD: ${{ secrets.QUAY_PASSWORD }}
-      if: "{{ env.QUAY_PASSWORD != '' }}"
+      if: env.QUAY_PASSWORD != ''
       id: push-to-quay
       uses: redhat-actions/push-to-registry@v2
       with:
